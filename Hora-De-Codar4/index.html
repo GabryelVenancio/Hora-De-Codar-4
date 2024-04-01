@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1)
+
+        function cadastrarEstudante() {
+            let nome = prompt("Digite o nome do estudante:");
+            return nome;
+        }
+
+        function main() {
+            const estudantes = [];
+
+            while (true) {
+                let resposta = cadastrarEstudante();
+
+                if (resposta.toUpperCase() === "PARE") {
+                    break;
+                }
+
+                estudantes.push(resposta);
+            }
+
+            console.log("Quantidade de estudantes cadastrados: " + estudantes.length);
+
+            console.log("Lista de estudantes:");
+            estudantes.forEach(function (estudante, indice) {
+                console.log(indice + 1 + ". " + estudante);
+            });
+        }
+
+        main();
+
+        // 2)
+
+        const planetas = ["Terra", "Marte", "Plutão", "Vênus", "Júpiter", "Saturno"];
+
+        let planetaUsuario = prompt("Digite o nome de um planeta:");
+
+        if (planetas.includes(planetaUsuario)) {
+            console.log("Sim, o planeta " + planetaUsuario + " está na lista de planetas.");
+        } else {
+            console.log("Desculpe, o planeta " + planetaUsuario + " não está na lista de planetas.");
+        }
+
+        // 3)
+
+        const frutas = ["Banana", "Maçã", "Uva", "Abacaxi", "Morango"];
+
+        function exibirListaFrutas() {
+            console.log("Lista de frutas disponíveis:");
+            for (let i = 0; i < frutas.length; i++) {
+                console.log((i + 1) + ". " + frutas[i]);
+            }
+        }
+
+        function main() {
+
+            exibirListaFrutas();
+
+            while (frutas.length > 0) {
+                let frutaRemover = prompt("Digite o nome de uma fruta para ser removida da lista:");
+
+                let indiceFruta = frutas.indexOf(frutaRemover);
+                if (indiceFruta !== -1) {
+                    frutas.splice(indiceFruta, 1);
+                    console.log("Fruta foi retirada da lista.");
+                    if (frutas.length > 0) {
+                        console.log("Lista de frutas atualizada:");
+                        exibirListaFrutas();
+                    } else {
+                        console.log("Lista de compras finalizada.");
+                    }
+                } else {
+                    console.log("Fruta indisponível no nosso mercado.");
+                }
+            }
+        }
+
+        main();
+
+
+    </script>
+</body>
+
+</html>
